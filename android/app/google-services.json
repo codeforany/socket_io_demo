@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "442094658019",
+    "project_id": "codeforany-80c1e",
+    "storage_bucket": "codeforany-80c1e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442094658019:android:518a130eb1bba54efd00d6",
+        "android_client_info": {
+          "package_name": "com.codeforany.socket_io_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442094658019-7j17subch89hif2e5bj3b82r46a1s9tb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfcYBkks0IHg0bZ3PxSWaydBdGJ7qZq_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "442094658019-7j17subch89hif2e5bj3b82r46a1s9tb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
