@@ -38,6 +38,10 @@ dependencies:
   socket_io_client: ^2.0.2
   firebase_core: ^2.14.0
   firebase_crashlytics: ^3.3.3
+  firebase_dynamic_links: ^5.3.3
+  firebase_analytics: ^10.4.3
+  share_plus: ^7.0.2
+
 
 dev_dependencies:
   flutter_test:

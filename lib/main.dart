@@ -3,9 +3,13 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:socket_io_demo/common/socket_helper.dart';
+import 'common/analytics_helper.dart';
+import 'common/dynamic_link_helper.dart';
 import 'common/my_http_overrides.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'details_view.dart';
 import 'firebase_options.dart';
+import 'home_view.dart';
 
 void main() async {
 
@@ -21,7 +25,7 @@ void main() async {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
-  SocketManager.shared.initSocket();
+  //SocketManager.shared.initSocket();
 
   runApp(const MyApp());
 }
@@ -71,7 +75,26 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  DynamicLinkHelper dHelper = DynamicLinkHelper();
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    dHelper.initDynamicLinks((openLink) {
+      print(openLink.link.path);
+      AnalyticHelper.eventLog("open_link",
+          {
+        "event_name": "open_link",
+        "name": "Code For Any", "address": "address", "path": openLink.link.path
+      });
+      if(openLink.link.path == "/home") {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeView() ));
+      }else if(openLink.link.path == "/details") {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsView() ));
+      }
+    });
+  }
   void _incrementCounter() {
     throw Exception();
   }
@@ -125,7 +148,47 @@ class _MyHomePageState extends State<MyHomePage> {
               throw const FormatException(" Button Press on Format Exception");
             }, child: const Text(
                   'FormatException Fire',
+                )),
+
+
+            TextButton(
+                onPressed: () {
+                  dHelper.createDynamicLink("home");
+                },
+                child: const Text(
+                  'Dynamic link Create Home Path',
                 ))
+                ,
+
+              TextButton(
+                onPressed: () {
+                  dHelper.createDynamicLink("details");
+                },
+                child: const Text(
+                  'Dynamic link Create Details Path',
+                )),
+                TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeView()));
+                },
+                child: const Text(
+                  'Home',
+                )),
+            TextButton(
+                onPressed: () {
+                   
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const DetailsView()));
+                  
+                },
+                child: const Text(
+                  ' Details',
+                )),
           ],
         ),
       ),
