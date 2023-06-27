@@ -28,8 +28,8 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="codeforany.page.link" android:scheme="http"/>
-                <data android:host="codeforany.page.link" android:scheme="https"/>
+                <data android:host="codeforanyiosapp.page.link" android:scheme="http"/>
+                <data android:host="codeforanyiosapp.page.link" android:scheme="https"/>
             </intent-filter>
         </activity>
         <!-- Don't delete the meta-data below.

@@ -15,18 +15,17 @@ class DynamicLinkHelper {
 
   Future<void> createDynamicLink(String  screenPath) async {
 
-
     final DynamicLinkParameters parameters = DynamicLinkParameters(
-      uriPrefix: 'https://codeforany.page.link',
+      uriPrefix: 'https://codeforanyiosapp.page.link',
 
-      link: Uri.parse("https://codeforany.page.link/$screenPath"),
+      link: Uri.parse("https://codeforanyiosapp.page.link/$screenPath"),
       androidParameters: const AndroidParameters(
         packageName: 'com.codeforany.socket_io_demo',
-        minimumVersion: 0,
+        minimumVersion: 1,
       ),
       iosParameters: const IOSParameters(
         bundleId: 'com.codeforany.socketIoDemo',
-        minimumVersion: '0',
+        minimumVersion: '1',
       ),
     );
 
